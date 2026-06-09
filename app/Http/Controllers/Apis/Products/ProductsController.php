@@ -19,6 +19,11 @@ class ProductsController extends Controller
 {
     use ApiTrait, media;
 
+public function __construct()
+{
+    return $this->authorizeResource(Product::class,'product');
+}
+
     /**
      * Display a listing of the resource.
      */
@@ -40,7 +45,7 @@ class ProductsController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        // dd($request->all());
+        
         $request->merge([
             'slug' => Str::slug($request->name)
         ]);
@@ -76,9 +81,9 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, string $slug)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-        $product = Product::where('slug', $slug)->first();
+        // $product = Product::where('slug', $slug)->first();
         if ($product) {
             $request->merge([
                 'slug' => Str::slug($request->name)
@@ -102,9 +107,9 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $slug)
+    public function destroy(Product $product)
     {
-        $product = Product::where('slug', $slug)->first();
+        // $product = Product::where('slug', $slug)->first();
         if ($product) {
             $product->delete();
 

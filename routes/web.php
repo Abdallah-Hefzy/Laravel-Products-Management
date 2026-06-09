@@ -39,7 +39,7 @@ Route::group(['prefix' => 'profile', 'as' => 'my-profile.', 'middleware' => ['au
     Route::put('updatePassword', [ProfileController::class, 'updatePassword'])->name('update-Password');
 });
 
-Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified', 'role:admin,super-admin']], function () {
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('notifications/read/{id}', [NotificationsController::class, 'read'])->name('notifications.read');

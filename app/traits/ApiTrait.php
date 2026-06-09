@@ -18,7 +18,7 @@ trait ApiTrait
         ], $code);
     }
 
-    public function errorMessage(array $errors = [] ,string $message = "" , int $code = 200)
+    public function errorMessage(array $errors = [] ,string $message = "" , int $code = 404)
     {
 
         return response()->json([

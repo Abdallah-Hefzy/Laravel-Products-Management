@@ -17,11 +17,11 @@ class CheckRole
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
 
-        
-            if (!Auth::user()->isAdmin()) {
-               abort(403);
-            }
-        
+
+        if (!in_array($request->user()->role->name, $roles)) {
+            abort(403);
+        }
+
         return $next($request);
     }
 }

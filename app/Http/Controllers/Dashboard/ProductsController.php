@@ -60,9 +60,6 @@ class ProductsController extends Controller
     public function store(StoreProductRequest $request)
     {
 
-        // Gate::authorize('creat-product');
-        // $this->authorize('create', Product::class);
-
         $request->merge([
             'slug' => Str::slug($request->name)
         ]);
@@ -95,12 +92,6 @@ class ProductsController extends Controller
     public function edit(Product $product, ProductService $service)
     {
 
-        // Gate::authorize('update-product', $product);
-        // if(request()->user()->cannot('update',$product)){
-        //     abort(403);
-        // }
-        // $this->authorize('update',$product);
-
         return view('backend.products.edit', array_merge(
             ['product' => $product],
             $service->getFormData()
@@ -112,8 +103,7 @@ class ProductsController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        // Gate::authorize('update-product',$product);
-        // $this->authorize('update',$product);
+       
         $data = $request->except(['_token', '_method', 'image']);
         if ($request->hasFile('image')) {
             $this->deleteImage($product->image, 'dist/img/products/');
@@ -130,9 +120,6 @@ class ProductsController extends Controller
      */
     public function destroy(Product $product)
     {
-
-        // Gate::authorize('delete-product',$product);
-        // $this->authorize('delete',$product);
 
         $product->delete();
         event(new ProductChanged($product, 'deleted',Auth::user()));
