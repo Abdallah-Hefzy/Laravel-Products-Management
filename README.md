@@ -1,28 +1,29 @@
-# To-Do Application
-
-A full-stack To-Do web application built with Laravel and PHP.
-The application allows users to manage tasks with authentication, validation, and RESTful API functionality.
+# Laravel Products Management System
+A full-stack web application built with Laravel for managing products with a complete dashboard and RESTful API.
 
 ---
 
 ## Features
-
 * User Authentication & Authorization
+* Role-Based Access Control (Admin / Super-Admin)
 * Laravel Sanctum Authentication
-* CRUD Operations for Tasks
+* CRUD Operations for Products
 * Form Request Validation
 * RESTful APIs
-* Email Verification
-* Soft Deletes
-* Notifications
+* Email Verification (Custom Code-Based)
+* Soft Deletes & Trash Management
+* Notifications (Database)
 * Events & Listeners
 * Middleware & Policies
+* Global Scopes
+* Service Layer
 * Eloquent Relationships & Eager Loading
+* Image Upload & Management
+* Search Functionality
 
 ---
 
 ## Technologies Used
-
 * Laravel
 * PHP
 * MySQL
@@ -35,26 +36,18 @@ The application allows users to manage tasks with authentication, validation, an
 ---
 
 ## Installation
-
 ```bash
-git clone git@github.com:abdallahhefzy05-hub/To_do_app.git
-
+git clone https://github.com/Abdallah-Hefzy/To_do_app.git
 cd To_do_app
-
 composer install
-
 cp .env.example .env
-
 php artisan key:generate
-
 php artisan migrate
-
 php artisan serve
 ```
 
 ---
 
 ## Author
-
-Abdallah Hussein Hefzy
+Abdallah Hussein Hefzy  
 Backend Developer | Laravel & PHP
