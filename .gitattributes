@@ -14,3 +14,5 @@ composer.lock linguist-generated=true
 node_modules/ linguist-vendored=true
 public/build/ linguist-vendored=true
 storage/framework/views/* linguist-generated=true
+public/js/* linguist-vendored=true
+public/css/* linguist-vendored=true
