@@ -1,5 +1,5 @@
 <?php
-
+// Laravel Products Management API Routes
 use App\Http\Controllers\Apis\Auth\EmailVerificationController;
 use App\Http\Controllers\Apis\Auth\LoginController;
 use App\Http\Controllers\Apis\Auth\RegisterController;
